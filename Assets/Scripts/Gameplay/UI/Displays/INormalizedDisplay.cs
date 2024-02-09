@@ -1,6 +1,6 @@
 namespace Gameplay.UI.Displays
 {
-    public interface NormalizedDisplay
+    public interface INormalizedDisplay
     {
         public void SetValue(float normalizedValue);
     }

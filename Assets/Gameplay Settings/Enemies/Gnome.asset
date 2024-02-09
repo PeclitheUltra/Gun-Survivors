@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Graphics>k__BackingField: {fileID: 597904132631119968, guid: 7177be5cca8cd2d49b51a1eb62f5de0e,
     type: 3}
-  <Health>k__BackingField: 5
+  <Health>k__BackingField: 10
   <MovementSpeed>k__BackingField: 3.5
   <AttackTime>k__BackingField: 1
-  <AttackRange>k__BackingField: 0.5
-  <AttackDamage>k__BackingField: 3
+  <AttackRange>k__BackingField: 1
+  <AttackDamage>k__BackingField: 1

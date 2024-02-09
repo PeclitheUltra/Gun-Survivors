@@ -23,8 +23,17 @@ namespace Gameplay.Player
             _playerShooter = playerShooter;
             _playerStats = playerStats;
             _health = health;
+            _health.SetMaxHealth(_playerStats.Health);
             _movement = movement;
             _input = input;
+            playerShooter.ShotFired += RotateTowardsShot;
+        }
+
+        private void RotateTowardsShot(GameObject target)
+        {
+            var position = target.transform.position;
+            position.y = transform.position.y;
+            transform.LookAt(position);
         }
 
         public Vector3 Position => transform.position;

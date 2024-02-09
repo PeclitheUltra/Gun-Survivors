@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8574ef6238261d4f8183a1e08943bad, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 5
+  <Health>k__BackingField: 30
   <MovementSpeed>k__BackingField: 5
-  <AttackTime>k__BackingField: 0.5
+  <AttackTime>k__BackingField: 0.1
   <AttackRange>k__BackingField: 10
-  <AttackDamage>k__BackingField: 3.5
+  <AttackDamage>k__BackingField: 1
   <AttackMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64

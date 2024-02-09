@@ -1,4 +1,5 @@
-﻿using Gameplay.Enemies;
+﻿using System;
+using Gameplay.Enemies;
 using Gameplay.Settings;
 using Gameplay.Stats;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Gameplay.Player.Shooting
 {
     public class PlayerShooter : IPlayerShooter
     {
+        public event Action<GameObject> ShotFired;
         private IStats _playerStats;
         private IPlayerAttackSettings _playerAttackSettings;
         private float _lastTimeAttacked;
@@ -53,6 +55,7 @@ namespace Gameplay.Player.Shooting
             if (gameObject.TryGetComponent<IEnemy>(out var enemy))
             {
                 enemy.DealDamage(_playerStats.AttackDamage);
+                ShotFired?.Invoke(gameObject);
             }
         }
     }

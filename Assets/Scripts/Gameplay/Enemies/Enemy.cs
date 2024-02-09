@@ -1,8 +1,10 @@
 ﻿using System;
+using Gameplay.Enemies.Attack;
 using Gameplay.Enemies.Creation;
 using Gameplay.Health;
 using Gameplay.Movement;
 using Gameplay.Player;
+using Gameplay.UI.Displays;
 using UnityEngine;
 using VContainer;
 
@@ -14,10 +16,12 @@ namespace Gameplay.Enemies
         private IMovement _movement;
         private IEnemySettings _settings;
         private IPlayerCharacter _player;
+        private IEnemyAttacker _enemyAttacker;
 
         [Inject]
-        private void Construct(IHealth health, IMovement movement, IPlayerCharacter player)
+        private void Construct(IHealth health, IMovement movement, IPlayerCharacter player, IEnemyAttacker enemyAttacker)
         {
+            _enemyAttacker = enemyAttacker;
             _player = player;
             _movement = movement;
             _health = health;
@@ -26,6 +30,8 @@ namespace Gameplay.Enemies
         private void Update()
         {
             _movement.Move(transform, _player.Position - transform.position, _settings.MovementSpeed);
+            
+            _enemyAttacker.TryAttack(transform.position, _player, _settings);
         }
 
         public void DealDamage(float damage)
@@ -38,7 +44,13 @@ namespace Gameplay.Enemies
             _settings = currentEnemy;
             _health.SetMaxHealth(_settings.Health);
             _health.HealthBecameEmpty += Terminate;
+            _health.HealthChanged += (_, _) => GetComponentInChildren<INormalizedDisplay>().SetValue(_health.CurrentHealth/_health.MaxHealth);
             Instantiate(currentEnemy.Graphics, transform.position, transform.rotation, transform);
+        }
+
+        public void SetPosition(Vector3 characterPosition)
+        {
+            transform.position = characterPosition;
         }
 
         private void Terminate()

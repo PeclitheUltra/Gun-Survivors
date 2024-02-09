@@ -5,7 +5,9 @@
     <explicitIncludes>
       <Path>Library/PackageCache/com.cysharp.unitask@809d23edae</Path>
       <Path>Library/PackageCache/com.neuecc.unirx@7cce378b3f</Path>
+      <Path>Library/PackageCache/com.unity.animation.rigging@1.1.1</Path>
       <Path>Library/PackageCache/com.unity.burst@1.8.4</Path>
+      <Path>Library/PackageCache/com.unity.cinemachine@2.8.9</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.6</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@3.0.20</Path>
       <Path>Library/PackageCache/com.unity.ide.visualstudio@2.0.18</Path>
@@ -25,7 +27,6 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>obj</Path>
     </explicitExcludes>

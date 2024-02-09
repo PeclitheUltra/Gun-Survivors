@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Gameplay.Player;
+using UnityEngine;
 
 namespace Gameplay.Enemies.Creation
 {
@@ -30,7 +31,8 @@ namespace Gameplay.Enemies.Creation
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                _enemyFactory.GetEnemy();
+                var enemy = _enemyFactory.GetEnemy();
+                enemy.SetPosition(_character.Position + Vector3.right * 10 + Vector3.forward * (Random.value - .5f) * 10);
                 await UniTask.WaitForSeconds(interval, false, PlayerLoopTiming.Update, cancellationToken);
             }
         }

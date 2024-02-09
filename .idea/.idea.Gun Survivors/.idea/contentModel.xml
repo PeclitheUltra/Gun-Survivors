@@ -8,10 +8,23 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.Player.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Content" t="Include">
+          <e p="Animations" t="Include" />
+          <e p="Shaders" t="Include" />
+          <e p="Sprites" t="Include">
+            <e p="Health" t="Include" />
+          </e>
+        </e>
         <e p="Gameplay Settings" t="Include">
           <e p="Enemies" t="Include" />
         </e>
         <e p="Graphics Settings" t="Include" />
+        <e p="Mini Simple Characters Demo" t="Include">
+          <e p="Materials" t="Include" />
+          <e p="Models" t="Include">
+            <e p="Animations" t="Include" />
+          </e>
+        </e>
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
@@ -41,6 +54,10 @@
               <e p="GameplayScope.cs" t="Include" />
             </e>
             <e p="Enemies" t="Include">
+              <e p="Attack" t="Include">
+                <e p="EnemyAttacker.cs" t="Include" />
+                <e p="IEnemyAttacker.cs" t="Include" />
+              </e>
               <e p="Creation" t="Include">
                 <e p="CreationSettings" t="Include">
                   <e p="EnemyPool.cs" t="Include" />
@@ -89,7 +106,8 @@
             <e p="UI" t="Include">
               <e p="Displays" t="Include">
                 <e p="DoubleSliderWithDelay.cs" t="Include" />
-                <e p="NormalizedDisplay.cs" t="Include" />
+                <e p="DoubleSpriteWithDelay.cs" t="Include" />
+                <e p="INormalizedDisplay.cs" t="Include" />
               </e>
               <e p="IUICoordinator.cs" t="Include" />
               <e p="UICoordinator.cs" t="Include" />

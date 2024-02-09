@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Gameplay.UI.Displays
 {
-    public class DoubleSliderWithDelay : MonoBehaviour, NormalizedDisplay
+    public class DoubleSliderWithDelay : MonoBehaviour, INormalizedDisplay
     {
         [SerializeField] private Slider _sliderMain, _sliderDelayed;
         

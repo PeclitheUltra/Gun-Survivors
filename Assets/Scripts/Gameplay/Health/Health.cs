@@ -6,12 +6,17 @@ namespace Gameplay.Health
     public class Health : IHealth
     {
         public event Action HealthBecameEmpty;
+        public event Action<float, float> HealthChanged;
+        public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth;
         private float _maxHealth;
         private float _currentHealth;
 
         public void DealDamage(float damage)
         {
+            float healthBefore = _currentHealth;
             _currentHealth -= damage;
+            HealthChanged?.Invoke(healthBefore, _currentHealth);
             if (_currentHealth <= 0)
             {
                 Death();

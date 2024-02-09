@@ -1,4 +1,5 @@
 ﻿using Gameplay.Enemies.Creation;
+using UnityEngine;
 
 namespace Gameplay.Enemies
 {
@@ -6,5 +7,6 @@ namespace Gameplay.Enemies
     {
         public void DealDamage(float damage);
         public void ApplySettings(IEnemySettings currentEnemy);
+        public void SetPosition(Vector3 characterPosition);
     }
 }
