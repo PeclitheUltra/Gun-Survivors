@@ -6,17 +6,10 @@ namespace Gameplay.Movement
 {
     public class SimpleTransformMovement : IMovement
     {
-        private IStats _stats;
-
-        public SimpleTransformMovement(IStats stats)
-        {
-            _stats = stats;
-        }
-
-        public void Move(Transform transform, Vector3 direction)
+        public void Move(Transform transform, Vector3 direction, float movementSpeed)
         {
             direction.Normalize();
-            direction *= Time.deltaTime * _stats.MovementSpeed;
+            direction *= Time.deltaTime * movementSpeed;
             transform.position += direction;
         }
     }

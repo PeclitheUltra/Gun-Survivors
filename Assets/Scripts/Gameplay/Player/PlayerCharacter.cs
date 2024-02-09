@@ -1,7 +1,9 @@
 ﻿using System;
+using Gameplay.Health;
 using Gameplay.Movement;
-using Gameplay.Player.Health;
 using Gameplay.Player.Input;
+using Gameplay.Player.Shooting;
+using Gameplay.Stats;
 using UnityEngine;
 using VContainer;
 
@@ -11,12 +13,16 @@ namespace Gameplay.Player
     {
         private IPlayerInput _input;
         private IMovement _movement;
-        private IPlayerHealth _playerHealth;
+        private IHealth _health;
+        private IStats _playerStats;
+        private IPlayerShooter _playerShooter;
 
         [Inject]
-        private void Construct(IPlayerInput input, IMovement movement, IPlayerHealth playerHealth)
+        private void Construct(IPlayerInput input, IMovement movement, IHealth health, IStats playerStats, IPlayerShooter playerShooter)
         {
-            _playerHealth = playerHealth;
+            _playerShooter = playerShooter;
+            _playerStats = playerStats;
+            _health = health;
             _movement = movement;
             _input = input;
         }
@@ -25,18 +31,19 @@ namespace Gameplay.Player
 
         public void DealDamage(float damage)
         {
-            _playerHealth.DealDamage(damage);
+            _health.DealDamage(damage);
         }
 
         private void Update()
         {
             ReadInputAndMove();
+            _playerShooter.UpdateAndTryToShoot(transform.position);
         }
 
         private void ReadInputAndMove()
         {
             var input = _input.InputDirection;
-            _movement.Move(transform, input);
+            _movement.Move(transform, new Vector3(input.x, 0, input.y), _playerStats.MovementSpeed);
         }
     }
 }

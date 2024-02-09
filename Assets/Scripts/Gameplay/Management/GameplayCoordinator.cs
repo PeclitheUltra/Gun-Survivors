@@ -22,7 +22,7 @@ namespace Gameplay.Management
         
         public void Start()
         {
-            
+            _enemySpawner.StartSpawning(.5f);
         }
     }
 }

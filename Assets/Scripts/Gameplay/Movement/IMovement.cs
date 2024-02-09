@@ -4,6 +4,6 @@ namespace Gameplay.Movement
 {
     public interface IMovement
     {
-        public void Move(Transform transform, Vector3 direction);
+        public void Move(Transform transform, Vector3 direction, float movementSpeed);
     }
 }
