@@ -14,6 +14,9 @@ namespace Gameplay.Health
 
         public void DealDamage(float damage)
         {
+            if (_currentHealth <= 0)
+                return;
+            
             float healthBefore = _currentHealth;
             _currentHealth -= damage;
             HealthChanged?.Invoke(healthBefore, _currentHealth);

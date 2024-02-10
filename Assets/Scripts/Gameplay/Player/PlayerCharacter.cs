@@ -11,6 +11,8 @@ namespace Gameplay.Player
 {
     public class PlayerCharacter : MonoBehaviour, IPlayerCharacter
     {
+        public Vector3 Position => transform.position;
+        public event Action Death;
         private IPlayerInput _input;
         private IMovement _movement;
         private IHealth _health;
@@ -24,9 +26,16 @@ namespace Gameplay.Player
             _playerStats = playerStats;
             _health = health;
             _health.SetMaxHealth(_playerStats.Health);
+            _health.HealthBecameEmpty += Die;
             _movement = movement;
             _input = input;
             playerShooter.ShotFired += RotateTowardsShot;
+        }
+
+        private void Die()
+        {
+            _health.HealthBecameEmpty -= Die;
+            Death?.Invoke();
         }
 
         private void RotateTowardsShot(GameObject target)
@@ -36,7 +45,6 @@ namespace Gameplay.Player
             transform.LookAt(position);
         }
 
-        public Vector3 Position => transform.position;
 
         public void DealDamage(float damage)
         {

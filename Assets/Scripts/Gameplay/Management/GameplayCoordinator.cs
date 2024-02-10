@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Enemies;
 using Gameplay.Enemies.Creation;
 using Gameplay.Player;
@@ -6,7 +7,7 @@ using VContainer.Unity;
 
 namespace Gameplay.Management
 {
-    public class GameplayCoordinator : IStartable
+    public class GameplayCoordinator : IStartable, IDisposable
     {
         private IPlayerCharacter _playerCharacter;
         private IEnemySpawner _enemySpawner;
@@ -23,6 +24,12 @@ namespace Gameplay.Management
         public void Start()
         {
             _enemySpawner.StartSpawning(.5f);
+            _playerCharacter.Death += _uiCoordinator.ShowFinishScreen;
+        }
+
+        public void Dispose()
+        {
+            _playerCharacter.Death -= _uiCoordinator.ShowFinishScreen;
         }
     }
 }

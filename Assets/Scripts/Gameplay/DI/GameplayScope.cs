@@ -12,6 +12,7 @@ using Gameplay.Settings;
 using Gameplay.Stats;
 using Gameplay.UI;
 using Gameplay.UI.Displays;
+using Gameplay.UI.Screens;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -25,6 +26,7 @@ namespace Gameplay.DI
         [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private Enemy _enemyDummy;
         [SerializeField] private DoubleSliderWithDelay _playerHealthDisplay;
+        [SerializeField] private FinishScreen _finishScreen;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -45,6 +47,8 @@ namespace Gameplay.DI
             
             builder.Register<Health.Health>(Lifetime.Transient).As<IHealth>();
             builder.Register<SimpleTransformMovement>(Lifetime.Transient).As<IMovement>();
+
+            builder.RegisterComponent<FinishScreen>(_finishScreen).As<IFinishScreen>();
         }
 
         private void RegisterPlayer(IContainerBuilder builder, IHealth playerHealth)
