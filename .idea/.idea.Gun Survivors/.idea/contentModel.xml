@@ -73,6 +73,13 @@
               <e p="Enemy.cs" t="Include" />
               <e p="IEnemy.cs" t="Include" />
             </e>
+            <e p="FX" t="Include">
+              <e p="PlayerShootFX" t="Include">
+                <e p="GunShootParticle.cs" t="Include" />
+                <e p="GunTrailFX.cs" t="Include" />
+                <e p="IOnShootFX.cs" t="Include" />
+              </e>
+            </e>
             <e p="Health" t="Include">
               <e p="Health.cs" t="Include" />
               <e p="IHealth.cs" t="Include" />

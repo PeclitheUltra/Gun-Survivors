@@ -1,11 +1,13 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Gameplay.Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Enemies.Creation
 {
-    public class EnemySpawner : IEnemySpawner
+    public class EnemySpawner : IEnemySpawner, IDisposable
     {
         private IPlayerCharacter _character;
         private IEnemyFactory _enemyFactory;
@@ -35,6 +37,12 @@ namespace Gameplay.Enemies.Creation
                 enemy.SetPosition(_character.Position + Vector3.right * 10 + Vector3.forward * (Random.value - .5f) * 10);
                 await UniTask.WaitForSeconds(interval, false, PlayerLoopTiming.Update, cancellationToken);
             }
+        }
+
+        public void Dispose()
+        {
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource?.Dispose();
         }
     }
 }

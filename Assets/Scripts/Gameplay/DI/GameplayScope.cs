@@ -2,6 +2,7 @@ using Gameplay.Enemies;
 using Gameplay.Enemies.Attack;
 using Gameplay.Enemies.Creation;
 using Gameplay.Enemies.Creation.CreationSettings;
+using Gameplay.FX.PlayerShootFX;
 using Gameplay.Health;
 using Gameplay.Management;
 using Gameplay.Movement;
@@ -27,6 +28,9 @@ namespace Gameplay.DI
         [SerializeField] private Enemy _enemyDummy;
         [SerializeField] private DoubleSliderWithDelay _playerHealthDisplay;
         [SerializeField] private FinishScreen _finishScreen;
+
+        [SerializeField] private GunTrailFX _gunTrailFX;
+        [SerializeField] private GunShootParticle _gunShootParticle;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -49,6 +53,9 @@ namespace Gameplay.DI
             builder.Register<SimpleTransformMovement>(Lifetime.Transient).As<IMovement>();
 
             builder.RegisterComponent<FinishScreen>(_finishScreen).As<IFinishScreen>();
+
+            builder.RegisterComponent<GunTrailFX>(_gunTrailFX).As<IOnShootFX>();
+            builder.RegisterComponent<GunShootParticle>(_gunShootParticle).As<IOnShootFX>();
         }
 
         private void RegisterPlayer(IContainerBuilder builder, IHealth playerHealth)

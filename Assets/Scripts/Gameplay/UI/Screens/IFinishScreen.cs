@@ -4,7 +4,6 @@ namespace Gameplay.UI.Screens
 {
     public interface IFinishScreen
     {
-        public event Action AnimationFinished;
-        public void Show();
+        public void Show(Action animationEndedCallback);
     }
 }

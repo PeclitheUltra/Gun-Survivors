@@ -3,11 +3,12 @@ using Gameplay.Enemies;
 using Gameplay.Enemies.Creation;
 using Gameplay.Player;
 using Gameplay.UI;
+using UnityEngine.SceneManagement;
 using VContainer.Unity;
 
 namespace Gameplay.Management
 {
-    public class GameplayCoordinator : IStartable, IDisposable
+    public class GameplayCoordinator : IStartable
     {
         private IPlayerCharacter _playerCharacter;
         private IEnemySpawner _enemySpawner;
@@ -24,12 +25,18 @@ namespace Gameplay.Management
         public void Start()
         {
             _enemySpawner.StartSpawning(.5f);
-            _playerCharacter.Death += _uiCoordinator.ShowFinishScreen;
+            _playerCharacter.Death += HandlePlayerDeath;
         }
 
-        public void Dispose()
+        private void HandlePlayerDeath()
         {
-            _playerCharacter.Death -= _uiCoordinator.ShowFinishScreen;
+            _uiCoordinator.ShowFinishScreen(RestartGame);
+        }
+
+        private void RestartGame()
+        {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(1);
         }
     }
 }

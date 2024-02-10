@@ -7,15 +7,14 @@ namespace Gameplay.UI.Screens
 {
     public class FinishScreen : MonoBehaviour, IFinishScreen
     {
-        public event Action AnimationFinished;
         [SerializeField] private CanvasGroup _background, _label;
         
-        public void Show()
+        public void Show(Action animationEndedCallback)
         {
-            PlayAppearAnimation();
+            PlayAppearAnimation(animationEndedCallback).Forget();
         }
 
-        private async UniTaskVoid PlayAppearAnimation()
+        private async UniTaskVoid PlayAppearAnimation(Action animationEndedCallback)
         {
             gameObject.SetActive(true);
             _background.alpha = 0;
@@ -26,7 +25,7 @@ namespace Gameplay.UI.Screens
             _label.transform.DOScale(1, .4f);
             _label.DOFade(1, .4f);
             await UniTask.WaitForSeconds(1f);
-            AnimationFinished?.Invoke();
+            animationEndedCallback?.Invoke();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Gameplay.FX.PlayerShootFX;
 using Gameplay.Health;
 using Gameplay.Movement;
 using Gameplay.Player.Input;
@@ -11,6 +13,7 @@ namespace Gameplay.Player
 {
     public class PlayerCharacter : MonoBehaviour, IPlayerCharacter
     {
+        [SerializeField] private Transform _shootPoint;
         public Vector3 Position => transform.position;
         public event Action Death;
         private IPlayerInput _input;
@@ -18,10 +21,12 @@ namespace Gameplay.Player
         private IHealth _health;
         private IStats _playerStats;
         private IPlayerShooter _playerShooter;
+        private IEnumerable<IOnShootFX> _onShootFx;
 
         [Inject]
-        private void Construct(IPlayerInput input, IMovement movement, IHealth health, IStats playerStats, IPlayerShooter playerShooter)
+        private void Construct(IPlayerInput input, IMovement movement, IHealth health, IStats playerStats, IPlayerShooter playerShooter, IEnumerable<IOnShootFX> onShootFx)
         {
+            _onShootFx = onShootFx;
             _playerShooter = playerShooter;
             _playerStats = playerStats;
             _health = health;
@@ -29,7 +34,7 @@ namespace Gameplay.Player
             _health.HealthBecameEmpty += Die;
             _movement = movement;
             _input = input;
-            playerShooter.ShotFired += RotateTowardsShot;
+            playerShooter.ShotFired += HandleShotFired;
         }
 
         private void Die()
@@ -38,11 +43,18 @@ namespace Gameplay.Player
             Death?.Invoke();
         }
 
-        private void RotateTowardsShot(GameObject target)
+        private void HandleShotFired(GameObject target)
         {
             var position = target.transform.position;
             position.y = transform.position.y;
             transform.LookAt(position);
+            foreach (var fx in _onShootFx)
+            {
+                var startPosition = _shootPoint.position;
+                var endPosition = target.transform.position;
+                endPosition.y = startPosition.y;
+                fx.PlayOnShoot(startPosition, endPosition);
+            }
         }
 
 

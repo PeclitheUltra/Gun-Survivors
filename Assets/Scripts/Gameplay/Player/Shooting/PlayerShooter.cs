@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Gameplay.Enemies;
+using Gameplay.FX.PlayerShootFX;
 using Gameplay.Settings;
 using Gameplay.Stats;
 using UnityEngine;
@@ -13,6 +15,7 @@ namespace Gameplay.Player.Shooting
         private IPlayerAttackSettings _playerAttackSettings;
         private float _lastTimeAttacked;
         private Collider[] _colliders = new Collider[10];
+        private IEnumerator<IOnShootFX> _shootFx;
 
         public PlayerShooter(IStats playerStats, IPlayerAttackSettings playerAttackSettings)
         {

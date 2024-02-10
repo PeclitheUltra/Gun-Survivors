@@ -44,8 +44,13 @@ namespace Gameplay.Enemies
             _settings = currentEnemy;
             _health.SetMaxHealth(_settings.Health);
             _health.HealthBecameEmpty += Terminate;
-            _health.HealthChanged += (_, _) => GetComponentInChildren<INormalizedDisplay>().SetValue(_health.CurrentHealth/_health.MaxHealth);
+            _health.HealthChanged += UpdateHealthDisplay;
             Instantiate(currentEnemy.Graphics, transform.position, transform.rotation, transform);
+        }
+
+        private void UpdateHealthDisplay(float before, float after)
+        {
+            GetComponentInChildren<INormalizedDisplay>().SetValue(_health.CurrentHealth/_health.MaxHealth);
         }
 
         public void SetPosition(Vector3 characterPosition)
@@ -56,6 +61,7 @@ namespace Gameplay.Enemies
         private void Terminate()
         {
             _health.HealthBecameEmpty -= Terminate;
+            _health.HealthChanged -= UpdateHealthDisplay;
             Destroy(gameObject);
         }
     }

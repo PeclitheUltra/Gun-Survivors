@@ -1,4 +1,5 @@
-﻿using Gameplay.Health;
+﻿using System;
+using Gameplay.Health;
 using Gameplay.UI.Displays;
 using Gameplay.UI.Screens;
 using VContainer;
@@ -21,9 +22,9 @@ namespace Gameplay.UI
                 _playerHealthDisplay.SetValue(_playerHealth.CurrentHealth / _playerHealth.MaxHealth);
         }
 
-        public void ShowFinishScreen()
+        public void ShowFinishScreen(Action animationEndedCallback)
         {
-            _finishScreen.Show();
+            _finishScreen.Show(animationEndedCallback);
         }
     }
 }
