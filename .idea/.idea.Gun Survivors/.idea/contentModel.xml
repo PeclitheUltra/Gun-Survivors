@@ -10,7 +10,61 @@
       <e p="Assets" t="Include">
         <e p="Content" t="Include">
           <e p="Animations" t="Include" />
-          <e p="Shaders" t="Include" />
+          <e p="Catgear Games" t="Include">
+            <e p="Model Pack 1" t="Include">
+              <e p="Chili" t="Include">
+                <e p="01_Chili_Attack.fbm" t="Include" />
+                <e p="02_Chili_Walk_Jump.fbm" t="Include" />
+                <e p="03_Chili_Walk_2 .fbm" t="Include" />
+                <e p="04_Chili_Damaged.fbm" t="Include" />
+                <e p="05_Chil_Idle .fbm" t="Include" />
+                <e p="06_Chili_Death  .fbm" t="Include" />
+                <e p="Materials" t="Include" />
+                <e p="readme.txt" t="Include" />
+              </e>
+              <e p="Eggy" t="Include">
+                <e p="01_Eggy_Walk.fbm" t="Include" />
+                <e p="02_Eggy_Attack.fbm" t="Include" />
+                <e p="03_Eggy_Damaged.fbm" t="Include" />
+                <e p="04_Eggy_Idle.fbm" t="Include" />
+                <e p="05_Eggy_Death.fbm" t="Include" />
+                <e p="Materials" t="Include" />
+                <e p="readme.txt" t="Include" />
+              </e>
+              <e p="Kiwi" t="Include">
+                <e p="01_Kiwi_Attack.fbm" t="Include" />
+                <e p="02_Kiwi_Walk.fbm" t="Include" />
+                <e p="03_Kiwi_Damaged.fbm" t="Include" />
+                <e p="04_Kiwi_Idle.fbm" t="Include" />
+                <e p="05_Kiwi_Death.fbm" t="Include" />
+                <e p="Materials" t="Include" />
+                <e p="readme.txt" t="Include" />
+              </e>
+              <e p="Langsat" t="Include">
+                <e p="01_Langsat_Walk .fbm" t="Include" />
+                <e p="02_Langsat_Attack.fbm" t="Include" />
+                <e p="03_Langsat_Damaged .fbm" t="Include" />
+                <e p="04_Langsat_Idle.fbm" t="Include" />
+                <e p="05_Langsat_Death .fbm" t="Include" />
+                <e p="Materials" t="Include" />
+                <e p="readme.txt" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="SFX" t="Include">
+            <e p="Sounds" t="Include">
+              <e p="Variation 1" t="Include" />
+              <e p="Variation 2" t="Include" />
+              <e p="Variation 3" t="Include" />
+              <e p="Variation 4" t="Include" />
+              <e p="Variation 5" t="Include" />
+              <e p="Variation 6" t="Include" />
+              <e p="Variation 7" t="Include" />
+            </e>
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Billboard.shader" t="Include" />
+          </e>
           <e p="Sprites" t="Include">
             <e p="Health" t="Include" />
           </e>
@@ -49,6 +103,7 @@
         <e p="Resources" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="ArrayExtensions.cs" t="Include" />
           <e p="Gameplay" t="Include">
             <e p="DI" t="Include">
               <e p="GameplayScope.cs" t="Include" />
@@ -89,6 +144,7 @@
             </e>
             <e p="Movement" t="Include">
               <e p="IMovement.cs" t="Include" />
+              <e p="RigidbodyMovement.cs" t="Include" />
               <e p="SimpleTransformMovement.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
@@ -123,6 +179,10 @@
               </e>
               <e p="UICoordinator.cs" t="Include" />
             </e>
+          </e>
+          <e p="Sound" t="Include">
+            <e p="ISFXPlayer.cs" t="Include" />
+            <e p="SFXPlayer.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

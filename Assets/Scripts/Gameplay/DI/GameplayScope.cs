@@ -14,6 +14,7 @@ using Gameplay.Stats;
 using Gameplay.UI;
 using Gameplay.UI.Displays;
 using Gameplay.UI.Screens;
+using Sound;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -50,12 +51,16 @@ namespace Gameplay.DI
             
             
             builder.Register<Health.Health>(Lifetime.Transient).As<IHealth>();
-            builder.Register<SimpleTransformMovement>(Lifetime.Transient).As<IMovement>();
+            
+            //builder.Register<SimpleTransformMovement>(Lifetime.Transient).As<IMovement>();
+            builder.Register<RigidbodyMovement>(Lifetime.Transient).As<IMovement>();
 
             builder.RegisterComponent<FinishScreen>(_finishScreen).As<IFinishScreen>();
 
             builder.RegisterComponent<GunTrailFX>(_gunTrailFX).As<IOnShootFX>();
             builder.RegisterComponent<GunShootParticle>(_gunShootParticle).As<IOnShootFX>();
+
+            builder.RegisterComponentInHierarchy<ISFXPlayer>();
         }
 
         private void RegisterPlayer(IContainerBuilder builder, IHealth playerHealth)

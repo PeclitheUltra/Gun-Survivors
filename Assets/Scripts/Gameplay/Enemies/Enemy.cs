@@ -5,6 +5,7 @@ using Gameplay.Health;
 using Gameplay.Movement;
 using Gameplay.Player;
 using Gameplay.UI.Displays;
+using Sound;
 using UnityEngine;
 using VContainer;
 
@@ -17,10 +18,12 @@ namespace Gameplay.Enemies
         private IEnemySettings _settings;
         private IPlayerCharacter _player;
         private IEnemyAttacker _enemyAttacker;
+        private ISFXPlayer _sfxPlayer;
 
         [Inject]
-        private void Construct(IHealth health, IMovement movement, IPlayerCharacter player, IEnemyAttacker enemyAttacker)
+        private void Construct(IHealth health, IMovement movement, IPlayerCharacter player, IEnemyAttacker enemyAttacker, ISFXPlayer sfxPlayer)
         {
+            _sfxPlayer = sfxPlayer;
             _enemyAttacker = enemyAttacker;
             _player = player;
             _movement = movement;
@@ -29,7 +32,9 @@ namespace Gameplay.Enemies
 
         private void Update()
         {
-            _movement.Move(transform, _player.Position - transform.position, _settings.MovementSpeed);
+            var direction = _player.Position - transform.position;
+            _movement.Move(transform, direction, _settings.MovementSpeed);
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
             
             _enemyAttacker.TryAttack(transform.position, _player, _settings);
         }
@@ -37,13 +42,14 @@ namespace Gameplay.Enemies
         public void DealDamage(float damage)
         {
             _health.DealDamage(damage);
+            _sfxPlayer.PlayEnemyHit();
         }
 
         public void ApplySettings(IEnemySettings currentEnemy)
         {
             _settings = currentEnemy;
             _health.SetMaxHealth(_settings.Health);
-            _health.HealthBecameEmpty += Terminate;
+            _health.HealthBecameEmpty += HandleDeath;
             _health.HealthChanged += UpdateHealthDisplay;
             Instantiate(currentEnemy.Graphics, transform.position, transform.rotation, transform);
         }
@@ -58,9 +64,10 @@ namespace Gameplay.Enemies
             transform.position = characterPosition;
         }
 
-        private void Terminate()
+        private void HandleDeath()
         {
-            _health.HealthBecameEmpty -= Terminate;
+            _sfxPlayer.PlayEnemyDeath();
+            _health.HealthBecameEmpty -= HandleDeath;
             _health.HealthChanged -= UpdateHealthDisplay;
             Destroy(gameObject);
         }

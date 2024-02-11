@@ -4,6 +4,7 @@ using Gameplay.Enemies;
 using Gameplay.FX.PlayerShootFX;
 using Gameplay.Settings;
 using Gameplay.Stats;
+using Sound;
 using UnityEngine;
 
 namespace Gameplay.Player.Shooting
@@ -16,9 +17,11 @@ namespace Gameplay.Player.Shooting
         private float _lastTimeAttacked;
         private Collider[] _colliders = new Collider[10];
         private IEnumerator<IOnShootFX> _shootFx;
+        private ISFXPlayer _sfxPlayer;
 
-        public PlayerShooter(IStats playerStats, IPlayerAttackSettings playerAttackSettings)
+        public PlayerShooter(IStats playerStats, IPlayerAttackSettings playerAttackSettings, ISFXPlayer sfxPlayer)
         {
+            _sfxPlayer = sfxPlayer;
             _playerAttackSettings = playerAttackSettings;
             _playerStats = playerStats;
         }
@@ -59,6 +62,7 @@ namespace Gameplay.Player.Shooting
             {
                 enemy.DealDamage(_playerStats.AttackDamage);
                 ShotFired?.Invoke(gameObject);
+                _sfxPlayer.PlayShoot();
             }
         }
     }
