@@ -9,37 +9,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74913aa3-f0c7-4d86-ba10-abc8fa7bd60d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Sound.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/ISFXPlayer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/ISFXPlayer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/SFXPlayer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Sound/SFXPlayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/CreationSettings/EnemySpawnSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/CreationSettings/EnemySpawnSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawnSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawnSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/IPlayerAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/IPlayerAnimator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/PlayerAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/PlayerAnimator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gun Survivors/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Sprites/Health/EnemyHealthFG.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Sprites/Health/EnemyHealthFG.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Content/Sprites/Health/EnemyHealthFGDelayed.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Sprites/Health/EnemyHealthFGDelayed.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Bug.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Bug.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Crawler.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Crawler.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Gnome.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Gnome.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Spider.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Spider.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Animations/mini simple demo.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Animations/mini simple demo.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Content/Shaders/Ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Content/Shaders/Ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Chili.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Chili.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Eggy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Eggy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Kiwi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Kiwi.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Langsat.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gameplay Settings/Enemies/Langsat.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Gameplay Settings/Player Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gameplay Settings/Player Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Balanced-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Balanced-Renderer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Balanced.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics Settings/URP-HighFidelity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics Settings/URP-Performant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spider Graphics.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spider Graphics.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tests scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tests scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/DI/GameplayScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/DI/GameplayScope.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Shooting/PlayerShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Shooting/PlayerShooter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Management/GameplayCoordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Management/GameplayCoordinator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/PlayerCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/PlayerCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/Screens/FinishScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/Screens/FinishScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +62,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Settings/PlayerSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Attack/IEnemyAttacker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/Health/IHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Movement/SimpleTransformPlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Health/IPlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Health/EnemyHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Health/IEnemyHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemyStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/CreationSettings/IEnemyPool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/CreationSettings/EnemyPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Movement/EnemyMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Movement/IEnemyMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Stats/IStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Settings/PlayerSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Health/PlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Health/IHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Health/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/IMovement.cs" />
@@ -99,22 +94,30 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/FX/IOnShootFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/FX/PlayerShootFX/IOnShootFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/FX/PlayerShootFX/GunTrailFX.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/PlayerCharacter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/FX/PlayerShootFX/GunShootParticle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/IUICoordinator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/UICoordinator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/Screens/IFinishScreen.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/Screens/FinishScreen.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Management/GameplayCoordinator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Sound/ISFXPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ArrayExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Sound/SFXPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Shooting/PlayerShooter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/DI/GameplayScope.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Content/Shaders/Billboard.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/IPlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Animations/PlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Finish/IGameplayFinishDisableable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Movement/RigidbodyMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/UI/Screens/FinishScreen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Input/JoystickPlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Settings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/PlayerCharacter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Player/Shooting/PlayerShooter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawnSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/CreationSettings/EnemySpawnSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/DI/GameplayScope.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/IEnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Enemies/Creation/EnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Management/GameplayCoordinator.cs" />
       </list>
     </option>
   </component>
@@ -168,6 +171,8 @@
       <workItem from="1707601297818" duration="832000" />
       <workItem from="1707602475466" duration="138000" />
       <workItem from="1707649983917" duration="4023000" />
+      <workItem from="1707729442686" duration="6709000" />
+      <workItem from="1707741862720" duration="1261000" />
     </task>
     <servers />
   </component>
@@ -192,10 +197,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="788" y="213" key="RiderGenerateDialog" timestamp="1707650143254">
+    <state x="788" y="213" key="RiderGenerateDialog" timestamp="1707741967536">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="788" y="213" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1707650143254" />
+    <state x="788" y="213" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1707741967536" />
     <state x="92" y="92" width="1736" height="896" key="VCS.FileHistoryDialog" timestamp="1707578882886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -204,9 +209,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="603" y="273" width="714" height="534" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1707578640405" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1707653227987">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1707742118418">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1707653227987" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1707742118418" />
   </component>
 </project>

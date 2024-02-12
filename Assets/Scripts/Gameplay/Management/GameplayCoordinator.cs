@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using Gameplay.Enemies;
 using Gameplay.Enemies.Creation;
 using Gameplay.Player;
 using Gameplay.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using VContainer;
 using VContainer.Unity;
 
 namespace Gameplay.Management
@@ -24,19 +27,20 @@ namespace Gameplay.Management
         
         public void Start()
         {
-            _enemySpawner.StartSpawning(.5f);
+            _enemySpawner.StartSpawning();
             _playerCharacter.Death += HandlePlayerDeath;
         }
 
         private void HandlePlayerDeath()
         {
+            Time.timeScale = 0;
             _uiCoordinator.ShowFinishScreen(RestartGame);
         }
 
         private void RestartGame()
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            SceneManager.LoadScene(1);
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

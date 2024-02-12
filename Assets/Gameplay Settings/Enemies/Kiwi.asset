@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bedce8fef74c6f973cb7b326e8d886, type: 3}
   m_Name: Kiwi
   m_EditorClassIdentifier: 
-  <Graphics>k__BackingField: {fileID: 100000, guid: ba506794bdf5d450d83396020368e1d4,
+  <Graphics>k__BackingField: {fileID: 1981170146133433810, guid: bcd2e6d8954cb2d4083d84cc7a8d7bb2,
     type: 3}
   <Health>k__BackingField: 15
   <MovementSpeed>k__BackingField: 2

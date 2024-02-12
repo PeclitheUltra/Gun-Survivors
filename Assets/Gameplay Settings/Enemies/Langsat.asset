@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bedce8fef74c6f973cb7b326e8d886, type: 3}
   m_Name: Langsat
   m_EditorClassIdentifier: 
-  <Graphics>k__BackingField: {fileID: 100000, guid: 2d53cfb1f51104109841f2863b9d11e9,
+  <Graphics>k__BackingField: {fileID: 4299706199567591772, guid: 00104b88b414f55419f6b3290b806270,
     type: 3}
   <Health>k__BackingField: 20
   <MovementSpeed>k__BackingField: 2

@@ -12,16 +12,18 @@ namespace Gameplay.Enemies.Creation
         private IPlayerCharacter _character;
         private IEnemyFactory _enemyFactory;
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        private IEnemySpawnSettings _enemySpawnSettings;
 
-        public EnemySpawner(IPlayerCharacter character, IEnemyFactory enemyFactory)
+        public EnemySpawner(IPlayerCharacter character, IEnemyFactory enemyFactory, IEnemySpawnSettings enemySpawnSettings)
         {
+            _enemySpawnSettings = enemySpawnSettings;
             _enemyFactory = enemyFactory;
             _character = character;
         }
 
-        public void StartSpawning(float interval)
+        public void StartSpawning()
         {
-            SpawnContinuously(.5f, _cancellationTokenSource.Token).Forget();
+            SpawnContinuously(_enemySpawnSettings.SpawnInterval, _cancellationTokenSource.Token).Forget();
         }
 
         public void StopSpawning()
@@ -34,7 +36,11 @@ namespace Gameplay.Enemies.Creation
             while (!cancellationToken.IsCancellationRequested)
             {
                 var enemy = _enemyFactory.GetEnemy();
-                enemy.SetPosition(_character.Position + Vector3.right * 10 + Vector3.forward * (Random.value - .5f) * 10);
+                var targetPosition =
+                    new Vector3(
+                        Random.Range(_enemySpawnSettings.HorizontalBounds.x, _enemySpawnSettings.HorizontalBounds.y), 0,
+                        Random.Range(_enemySpawnSettings.VerticalBounds.x, _enemySpawnSettings.VerticalBounds.y));
+                enemy.SetPosition(targetPosition);
                 await UniTask.WaitForSeconds(interval, false, PlayerLoopTiming.Update, cancellationToken);
             }
         }
@@ -43,6 +49,11 @@ namespace Gameplay.Enemies.Creation
         {
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource?.Dispose();
+        }
+
+        public void Disable()
+        {
+            StopSpawning();
         }
     }
 }

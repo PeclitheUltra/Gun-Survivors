@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Gameplay.FX.PlayerShootFX;
 using Gameplay.Health;
 using Gameplay.Movement;
+using Gameplay.Player.Animations;
 using Gameplay.Player.Input;
 using Gameplay.Player.Shooting;
 using Gameplay.Stats;
@@ -22,10 +23,18 @@ namespace Gameplay.Player
         private IStats _playerStats;
         private IPlayerShooter _playerShooter;
         private IEnumerable<IOnShootFX> _onShootFx;
+        private IPlayerAnimator _playerAnimator;
 
         [Inject]
-        private void Construct(IPlayerInput input, IMovement movement, IHealth health, IStats playerStats, IPlayerShooter playerShooter, IEnumerable<IOnShootFX> onShootFx)
+        private void Construct(IPlayerInput input, 
+            IMovement movement, 
+            IHealth health, 
+            IStats playerStats, 
+            IPlayerShooter playerShooter, 
+            IEnumerable<IOnShootFX> onShootFx, 
+            IPlayerAnimator playerAnimator)
         {
+            _playerAnimator = playerAnimator;
             _onShootFx = onShootFx;
             _playerShooter = playerShooter;
             _playerStats = playerStats;
@@ -66,7 +75,8 @@ namespace Gameplay.Player
         private void Update()
         {
             ReadInputAndMove();
-            _playerShooter.UpdateAndTryToShoot(transform.position);
+            _playerShooter.UpdateAndTryToShoot(Position);
+            _playerAnimator.Update(transform);
         }
 
         private void ReadInputAndMove()

@@ -2,7 +2,7 @@
 {
     public interface IEnemySpawner
     {
-        public void StartSpawning(float interval);
+        public void StartSpawning();
         public void StopSpawning();
     }
 }

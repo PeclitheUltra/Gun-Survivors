@@ -7,6 +7,7 @@ using Gameplay.Health;
 using Gameplay.Management;
 using Gameplay.Movement;
 using Gameplay.Player;
+using Gameplay.Player.Animations;
 using Gameplay.Player.Input;
 using Gameplay.Player.Shooting;
 using Gameplay.Settings;
@@ -29,6 +30,7 @@ namespace Gameplay.DI
         [SerializeField] private Enemy _enemyDummy;
         [SerializeField] private DoubleSliderWithDelay _playerHealthDisplay;
         [SerializeField] private FinishScreen _finishScreen;
+        [SerializeField] private EnemySpawnSettings _enemySpawnSettings;
 
         [SerializeField] private GunTrailFX _gunTrailFX;
         [SerializeField] private GunShootParticle _gunShootParticle;
@@ -42,6 +44,7 @@ namespace Gameplay.DI
             builder.Register<EnemySpawner>(Lifetime.Scoped).As<IEnemySpawner>();
             builder.Register<EnemyFactory>(Lifetime.Scoped).As<IEnemyFactory>();
             builder.RegisterComponent<EnemyPool>(_enemyPool).As<IEnemyPool>();
+            builder.RegisterComponent<EnemySpawnSettings>(_enemySpawnSettings).As<IEnemySpawnSettings>();
             
 
             builder.RegisterComponentInNewPrefab<Enemy>(_enemyDummy, Lifetime.Transient).As<IEnemy>();
@@ -66,8 +69,12 @@ namespace Gameplay.DI
         private void RegisterPlayer(IContainerBuilder builder, IHealth playerHealth)
         {
             builder.RegisterComponent<PlayerCharacter>(_playerCharacter).As<IPlayerCharacter>().WithParameter<IStats>(_playerSettings).WithParameter<IHealth>(playerHealth);
-            builder.Register<KeyboardPlayerInput>(Lifetime.Scoped).As<IPlayerInput>();
-            builder.Register<PlayerShooter>(Lifetime.Scoped).As<IPlayerShooter>().WithParameter<IStats>(_playerSettings).WithParameter<IPlayerAttackSettings>(_playerSettings);
+            //builder.Register<KeyboardPlayerInput>(Lifetime.Scoped).As<IPlayerInput>();
+            builder.RegisterComponentInHierarchy<JoystickPlayerInput>().As<IPlayerInput>();
+            builder.Register<PlayerShooter>(Lifetime.Scoped)
+                .As<IPlayerShooter>()
+                .WithParameter<IStats>(_playerSettings).WithParameter<IPlayerAttackSettings>(_playerSettings);
+            builder.Register<PlayerAnimator>(Lifetime.Scoped).As<IPlayerAnimator>();
         }
     }
 }

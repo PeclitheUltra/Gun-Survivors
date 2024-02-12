@@ -51,6 +51,7 @@
               </e>
             </e>
           </e>
+          <e p="Models" t="Include" />
           <e p="SFX" t="Include">
             <e p="Sounds" t="Include">
               <e p="Variation 1" t="Include" />
@@ -67,6 +68,7 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="Health" t="Include" />
+            <e p="Joystick" t="Include" />
           </e>
         </e>
         <e p="Gameplay Settings" t="Include">
@@ -99,7 +101,10 @@
             </e>
           </e>
         </e>
-        <e p="Prefabs" t="Include" />
+        <e p="Prefabs" t="Include">
+          <e p="Enemy Graphics" t="Include" />
+          <e p="Visuals" t="Include" />
+        </e>
         <e p="Resources" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
@@ -117,6 +122,7 @@
                 <e p="CreationSettings" t="Include">
                   <e p="EnemyPool.cs" t="Include" />
                   <e p="EnemySettings.cs" t="Include" />
+                  <e p="EnemySpawnSettings.cs" t="Include" />
                   <e p="IEnemyPool.cs" t="Include" />
                 </e>
                 <e p="EnemyFactory.cs" t="Include" />
@@ -124,6 +130,7 @@
                 <e p="IEnemyFactory.cs" t="Include" />
                 <e p="IEnemySettings.cs" t="Include" />
                 <e p="IEnemySpawner.cs" t="Include" />
+                <e p="IEnemySpawnSettings.cs" t="Include" />
               </e>
               <e p="Enemy.cs" t="Include" />
               <e p="IEnemy.cs" t="Include" />
@@ -148,8 +155,13 @@
               <e p="SimpleTransformMovement.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
+              <e p="Animations" t="Include">
+                <e p="IPlayerAnimator.cs" t="Include" />
+                <e p="PlayerAnimator.cs" t="Include" />
+              </e>
               <e p="Input" t="Include">
                 <e p="IPlayerInput.cs" t="Include" />
+                <e p="JoystickPlayerInput.cs" t="Include" />
                 <e p="KeyboardPlayerInput.cs" t="Include" />
               </e>
               <e p="IPlayerCharacter.cs" t="Include" />
@@ -180,6 +192,7 @@
               <e p="UICoordinator.cs" t="Include" />
             </e>
           </e>
+          <e p="Settings.cs" t="Include" />
           <e p="Sound" t="Include">
             <e p="ISFXPlayer.cs" t="Include" />
             <e p="SFXPlayer.cs" t="Include" />
