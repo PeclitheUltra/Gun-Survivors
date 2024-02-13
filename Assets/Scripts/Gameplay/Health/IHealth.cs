@@ -10,6 +10,7 @@ namespace Gameplay.Health
         public float MaxHealth { get; }
         public void DealDamage(float damage);
         public void SetMaxHealth(float health);
+        public void RestoreHealthToFull();
 
     }
 }

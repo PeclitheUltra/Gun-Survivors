@@ -62,6 +62,7 @@ namespace Gameplay.DI
 
             builder.RegisterComponent<GunTrailFX>(_gunTrailFX).As<IOnShootFX>();
             builder.RegisterComponent<GunShootParticle>(_gunShootParticle).As<IOnShootFX>();
+            
 
             builder.RegisterComponentInHierarchy<ISFXPlayer>();
         }

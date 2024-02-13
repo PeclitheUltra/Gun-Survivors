@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Gameplay.FX.PlayerShootFX;
 using Gameplay.Health;
 using Gameplay.Movement;
@@ -56,7 +57,7 @@ namespace Gameplay.Player
         {
             var position = target.transform.position;
             position.y = transform.position.y;
-            transform.LookAt(position);
+            _movement.RotateOverTime(transform, Quaternion.LookRotation(position - Position, Vector3.up), .15f);
             foreach (var fx in _onShootFx)
             {
                 var startPosition = _shootPoint.position;

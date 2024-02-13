@@ -53,14 +53,14 @@ namespace Gameplay.Player.Shooting
                 }
             }
 
-            Shoot(_colliders[minId].gameObject);
+            Shoot(_colliders[minId].gameObject, checkOrigin);
         }
 
-        private void Shoot(GameObject gameObject)
+        private void Shoot(GameObject gameObject, Vector3 checkOrigin)
         {
             if (gameObject.TryGetComponent<IEnemy>(out var enemy))
             {
-                enemy.DealDamage(_playerStats.AttackDamage);
+                enemy.DealDamage(_playerStats.AttackDamage, checkOrigin);
                 ShotFired?.Invoke(gameObject);
                 _sfxPlayer.PlayShoot();
             }

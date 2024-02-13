@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <HorizontalBounds>k__BackingField: {x: -15, y: 15}
   <VerticalBounds>k__BackingField: {x: -15, y: 15}
-  <MinimalEnemyOnScreenCount>k__BackingField: 5
-  <SpawnInterval>k__BackingField: 2.5
+  <MinimalEnemyOnScreenCount>k__BackingField: 8
+  <SpawnInterval>k__BackingField: 1.3

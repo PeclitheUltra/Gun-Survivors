@@ -13,6 +13,7 @@ namespace Gameplay.Enemies.Creation
         private IEnemyFactory _enemyFactory;
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private IEnemySpawnSettings _enemySpawnSettings;
+        private int _enemiesSpawned;
 
         public EnemySpawner(IPlayerCharacter character, IEnemyFactory enemyFactory, IEnemySpawnSettings enemySpawnSettings)
         {
@@ -35,14 +36,29 @@ namespace Gameplay.Enemies.Creation
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                var enemy = _enemyFactory.GetEnemy();
-                var targetPosition =
-                    new Vector3(
-                        Random.Range(_enemySpawnSettings.HorizontalBounds.x, _enemySpawnSettings.HorizontalBounds.y), 0,
-                        Random.Range(_enemySpawnSettings.VerticalBounds.x, _enemySpawnSettings.VerticalBounds.y));
-                enemy.SetPosition(targetPosition);
+                do SpawnEnemy();
+                while (_enemiesSpawned < _enemySpawnSettings.MinimalEnemyOnScreenCount);
+
                 await UniTask.WaitForSeconds(interval, false, PlayerLoopTiming.Update, cancellationToken);
             }
+        }
+
+        private void SpawnEnemy()
+        {
+            var enemy = _enemyFactory.GetEnemy();
+            var targetPosition =
+                new Vector3(
+                    Random.Range(_enemySpawnSettings.HorizontalBounds.x, _enemySpawnSettings.HorizontalBounds.y), 0,
+                    Random.Range(_enemySpawnSettings.VerticalBounds.x, _enemySpawnSettings.VerticalBounds.y));
+            enemy.SetPosition(targetPosition);
+            enemy.Death += HandleEnemyDeath;
+            _enemiesSpawned++;
+        }
+
+        private void HandleEnemyDeath(IEnemy enemy)
+        {
+            _enemiesSpawned--;
+            enemy.Death -= HandleEnemyDeath;
         }
 
         public void Dispose()

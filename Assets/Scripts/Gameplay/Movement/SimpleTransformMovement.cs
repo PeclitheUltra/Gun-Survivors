@@ -12,5 +12,10 @@ namespace Gameplay.Movement
             direction *= Time.deltaTime * movementSpeed;
             transform.position += direction;
         }
+
+        public void RotateOverTime(Transform transform, Quaternion lookRotation, float time)
+        {
+            
+        }
     }
 }

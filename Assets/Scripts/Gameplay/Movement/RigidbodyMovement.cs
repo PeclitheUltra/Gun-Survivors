@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Gameplay.Movement
 {
@@ -6,25 +7,29 @@ namespace Gameplay.Movement
     {
         private bool _foundRigidbody;
         private Rigidbody _rigidbody;
-        private bool _canMove = true;
-        
+
         public void Move(Transform transform, Vector3 direction, float movementSpeed)
         {
-            if (!_canMove)
-                return;
             if (!_foundRigidbody)
             {
                 _foundRigidbody = transform.TryGetComponent<Rigidbody>(out _rigidbody);
-                return;
+                if (_foundRigidbody)
+                    return;
             }
             direction.Normalize();
             _rigidbody.velocity = direction * movementSpeed;
 
         }
 
-        public void Disable()
+        public void RotateOverTime(Transform transform, Quaternion lookRotation, float time)
         {
-            _canMove = false;
+            if (!_foundRigidbody)
+            {
+                _foundRigidbody = transform.TryGetComponent<Rigidbody>(out _rigidbody);
+                if (_foundRigidbody)
+                    return;
+            }
+            _rigidbody.DORotate(lookRotation.eulerAngles, time);
         }
     }
 }

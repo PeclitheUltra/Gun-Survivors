@@ -32,6 +32,13 @@ namespace Gameplay.Health
             _currentHealth = _maxHealth;
         }
 
+        public void RestoreHealthToFull()
+        {
+            var healthBefore = _currentHealth;
+            _currentHealth = _maxHealth;
+            HealthChanged?.Invoke(healthBefore, _currentHealth);
+        }
+
         private void Death()
         {
             HealthBecameEmpty?.Invoke();

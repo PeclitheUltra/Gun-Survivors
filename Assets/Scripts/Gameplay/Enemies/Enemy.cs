@@ -13,6 +13,7 @@ namespace Gameplay.Enemies
 {
     public class Enemy : MonoBehaviour, IEnemy
     {
+        public event Action<IEnemy> Death;
         private IHealth _health;
         private IMovement _movement;
         private IEnemySettings _settings;
@@ -39,7 +40,8 @@ namespace Gameplay.Enemies
             _enemyAttacker.TryAttack(transform.position, _player, _settings);
         }
 
-        public void DealDamage(float damage)
+
+        public void DealDamage(float damage, Vector3 sourcePosition)
         {
             _health.DealDamage(damage);
             _sfxPlayer.PlayEnemyHit();
@@ -48,10 +50,15 @@ namespace Gameplay.Enemies
         public void ApplySettings(IEnemySettings currentEnemy)
         {
             _settings = currentEnemy;
+            Instantiate(currentEnemy.Graphics, transform.position, transform.rotation, transform);
+            InitializeHealth();
+        }
+
+        private void InitializeHealth()
+        {
             _health.SetMaxHealth(_settings.Health);
             _health.HealthBecameEmpty += HandleDeath;
             _health.HealthChanged += UpdateHealthDisplay;
-            Instantiate(currentEnemy.Graphics, transform.position, transform.rotation, transform);
         }
 
         private void UpdateHealthDisplay(float before, float after)
@@ -66,10 +73,19 @@ namespace Gameplay.Enemies
 
         private void HandleDeath()
         {
+            Death?.Invoke(this);
             _sfxPlayer.PlayEnemyDeath();
-            _health.HealthBecameEmpty -= HandleDeath;
-            _health.HealthChanged -= UpdateHealthDisplay;
-            Destroy(gameObject);
+        }
+
+        public void OnGetFromPool()
+        {
+            _health.RestoreHealthToFull();
+            gameObject.SetActive(true);
+        }
+
+        public void OnReturnToPool()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

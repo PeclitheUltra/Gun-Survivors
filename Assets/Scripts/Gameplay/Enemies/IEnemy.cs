@@ -1,11 +1,14 @@
-﻿using Gameplay.Enemies.Creation;
+﻿using System;
+using Gameplay.Enemies.Creation;
+using Gameplay.Pooling;
 using UnityEngine;
 
 namespace Gameplay.Enemies
 {
-    public interface IEnemy
+    public interface IEnemy : IPoolable
     {
-        public void DealDamage(float damage);
+        public event Action<IEnemy> Death;
+        public void DealDamage(float damage, Vector3 sourcePosition);
         public void ApplySettings(IEnemySettings currentEnemy);
         public void SetPosition(Vector3 characterPosition);
     }
