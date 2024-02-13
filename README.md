@@ -1,3 +1,3 @@
-Simple Top Down Autoshooter
-Free Assets Only
-VContainer, UniTask, UniRx, DOTween
+Simple Top Down Autoshooter <br />
+Free Assets Only <br />
+VContainer, UniTask, UniRx, DOTween <br />
